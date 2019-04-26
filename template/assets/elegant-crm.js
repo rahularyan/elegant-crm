@@ -13,7 +13,7 @@
         e.preventDefault();
 
         // Clear previous errors.
-        $('.elegant-form-error').remove();
+        $('.elegant-form-msg').remove();
         $('.has-error').removeClass('has-error');
 
         $.ajax({
@@ -23,19 +23,18 @@
             success: function(data){
                 $('.elegant-form-groups').hide();
             },
-            error: function(jqXHR){
-                var json = jqXHR.responseJSON;
+        }).complete(function(jqXHR){
+            var json = jqXHR.responseJSON;
 
-                if(json.data.missing_fields){
-                    $.each(json.data.missing_fields, function(i, f){
-                        $('.form-group-' + f).addClass('has-error');
-                    });
-                }
-            }
-        }).done(function(json){
-            if(json.data.msg){
+            if(typeof json.data.msg !== 'undefined'){
                 var typeClass = json.success ? 'success' : 'errors';
                 $('#elegant-crm-form').prepend('<div class="elegant-form-msg '+ typeClass +'">' + json.data.msg + '</div>');
+            }
+
+            if(typeof json.data.missing_fields !== 'undefined'){
+                $.each(json.data.missing_fields, function(i, f){
+                    $('.form-group-' + f).addClass('has-error');
+                });
             }
         });
     });

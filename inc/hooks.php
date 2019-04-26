@@ -128,6 +128,7 @@ class Hooks {
 			'post_content' => $values['message'],
 			'post_type'    => 'elegant_customer',
 			'post_status'  => 'private',
+			'post_date'    => $values['current_time'],
 			'meta_input'   => [
 				'__crm_phone'  => $values['phone'],
 				'__crm_email'  => $values['email'],
