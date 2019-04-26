@@ -1,0 +1,62 @@
+#elegant-crm{
+    form{
+        max-width: 600px;
+        margin: 0 auto;
+        background: #fff;
+        border: solid 2px #eee;
+        padding: 20px;
+        border-radius: 7px;
+
+        .form-group{
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            &-message{
+                margin-top: 20px;
+                display: block;
+            }
+
+            &.has-error{
+                input, textarea{
+                    border-color: red;
+                }
+                label{
+                    color: red;
+                }
+            }
+        }
+        label{
+            flex: 0 0 150px;
+            font-size: 13px;
+        }
+        input[type="text"]{
+            width: 100%;
+        }
+
+        textarea{
+            margin-top: 10px;
+        }
+
+        input[type="submit"] {
+            border: none;
+            background: #00d084;
+            color: #fff;
+            padding: 10px;
+        }
+
+    }
+
+    .elegant-form-msg {
+        border: solid 1px #7bdcb5;
+        padding: 8px 15px;
+        margin-bottom: 15px;
+        border-radius: 4px;
+        font-size: 13px;
+        background: #d2f0e4;
+        &.errors{
+            border-color: #f78da7;
+            background: #fff3f6;
+        }
+    }
+
+}
